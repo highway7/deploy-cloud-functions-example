@@ -33,6 +33,7 @@ For pushes to the `main` branch, this workflow will:
     - Creating a function revision
     - Creating or Updating function deployment
 
+3.  Run curl to the URL of the deployed Cloud Function service
 
 ## Setup
 
