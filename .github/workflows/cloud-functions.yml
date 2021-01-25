@@ -19,6 +19,10 @@ on:
     branches:
     - main
 
+env:
+  REGION: us-central1
+  SOURCE_DIR: example-app
+    
 jobs:
   setup-build-deploy:
     name: Setup, Build, and Deploy
@@ -35,7 +39,11 @@ jobs:
         runtime: python37
         entry_point: hello_world
         credentials: ${{ secrets.GCP_SA_KEY }}
+        region: ${{ env.REGION }}
+        source_dir: ${{ env.SOURCE_DIR }}
 
-    # Example of using the output available with HTTP Trigger
+
+
+    # Example of using the output available  with HTTP Trigger
     - id: test
       run: curl "${{ steps.deploy.outputs.url }}"
